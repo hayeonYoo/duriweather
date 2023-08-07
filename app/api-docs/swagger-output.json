@@ -1,0 +1,473 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "My Endpoint API",
+    "version": "1.0.0",
+    "description": "<h2>My Endpoint API 사용방법.</h2>"
+  },
+  "servers": [
+    {
+      "url": "",
+      "description": "My Endpoint API Documentation"
+    }
+  ],
+  "tags": [
+    {
+      "name": "album-resource",
+      "description": " (외부) Album API 그룹"
+    },
+    {
+      "name": "book-resource",
+      "description": "(파일) Book API 그룹"
+    },
+    {
+      "name": "post-resource",
+      "description": "Post API 그룹"
+    },
+    {
+      "name": "profile-resource",
+      "description": "Profile API 그룹"
+    },
+    {
+      "name": "user-resource",
+      "description": "User API 그룹"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ping": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/albums/": {
+      "get": {
+        "tags": [
+          "album-resource"
+        ],
+        "summary": "Album 목록 조회",
+        "description": "요청한 페이지에 해당하는 Album 목록을 조회합니다.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/albums/{id}": {
+      "get": {
+        "tags": [
+          "album-resource"
+        ],
+        "summary": "Album 상세정보 조회",
+        "description": "id에 해당하는 Album 상세정보를 조회합니다.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/books/": {
+      "get": {
+        "tags": [
+          "book-resource"
+        ],
+        "summary": "Book 목록 조회",
+        "description": "요청한 페이지에 해당하는 Book 목록을 조회합니다.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "book-resource"
+        ],
+        "summary": "신규 Book 등록",
+        "description": "신규 Book을 등록합니다.",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "example": "any"
+                  },
+                  "author": {
+                    "example": "any"
+                  },
+                  "finished": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/books/{id}": {
+      "get": {
+        "tags": [
+          "book-resource"
+        ],
+        "summary": "Book 상세정보 조회",
+        "description": "id에 해당하는 Book 상세정보를 조회합니다.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "book-resource"
+        ],
+        "summary": "Book 정보 수정",
+        "description": "id에 해당하는 Book 정보를 수정합니다.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "example": "any"
+                  },
+                  "author": {
+                    "example": "any"
+                  },
+                  "finished": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "book-resource"
+        ],
+        "summary": "Book 삭제",
+        "description": "id에 해당하는 Book을 삭제합니다.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/posts/": {
+      "get": {
+        "tags": [
+          "post-resource"
+        ],
+        "summary": "Post 목록 조회",
+        "description": "요청한 페이지에 해당하는 Post 목록을 조회합니다.",
+        "parameters": [
+          {
+            "name": "searchString",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/posts/{id}": {
+      "get": {
+        "tags": [
+          "post-resource"
+        ],
+        "summary": "Post 상세정보 조회",
+        "description": "id에 해당하는 Post 상세정보를 조회합니다.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/profiles/": {
+      "get": {
+        "tags": [
+          "profile-resource"
+        ],
+        "summary": "Profile 목록 조회",
+        "description": "요청한 페이지에 해당하는 Profile 목록을 조회합니다.",
+        "parameters": [
+          {
+            "name": "searchString",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/profiles/{id}": {
+      "get": {
+        "tags": [
+          "profile-resource"
+        ],
+        "summary": "Profile 상세정보 조회",
+        "description": "id에 해당하는 Profile 상세정보를 조회합니다.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/api/users/": {
+      "get": {
+        "tags": [
+          "user-resource"
+        ],
+        "summary": "User 목록 조회",
+        "description": "요청한 페이지에 해당하는 User 목록을 조회합니다.",
+        "parameters": [
+          {
+            "name": "searchString",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "tags": [
+          "user-resource"
+        ],
+        "summary": "User 상세정보 조회",
+        "description": "id에 해당하는 User 상세정보를 조회합니다.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "in": "header",
+        "bearerFormat": "JWT"
+      },
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY",
+        "description": "any description..."
+      }
+    }
+  }
+}
