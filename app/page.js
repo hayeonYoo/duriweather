@@ -1,95 +1,101 @@
+// 메인 페이지 
+
 import Image from 'next/image'
-import styles from './page.module.css'
+import Link from "next/link"
+// import axios from "axios"
+
+const express = require("express");
+
+const bodyParser = require("body-parser");
+const basicAuth = require("express-basic-auth");
+
+// Create an express instance
+const app = express();
+
+
+/**
+ * Express 내장 미들웨어 등록
+ */
+// app.use(express.static("public")); // ok
+app.use("/static", express.static("static")); // ok
+// app.use("/static", express.static(__dirname + "/public")); // ko
+
+app.use(express.urlencoded());
+app.use(express.json());
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: true,
+//   })
+// );
+// app.use(bodyParser.json());
+
+/**
+ * API router 등록
+ */
+const apiRouter = require("./api/router");
+app.use("/api", apiRouter);
+
+/**
+ * Page router 등록
+ */
+app.use("/api", apiRouter);
+app.get("/", (req, res) => {
+  res.send("Express JS on Vercel");
+});
+app.get("/ping", (req, res) => {
+  res.send("pong 🏓");
+});
+
+/**
+ * API documents 등록
+ */
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./api-docs/swagger-output.json");
+app.use(
+  "/api-docs",
+  basicAuth({
+    users: { admin: "secret" },
+    challenge: true,
+  }),
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, {
+    customCssUrl: [
+      "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css",
+    ],
+  })
+);
+
+module.exports = app;
+
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <div className="whole-container">
+        <div className='dust-sheet'>
+          <p>미세먼지 관련 시트</p>
+        </div>
+        <div className='weather-sheet'>
+          <p>날씨 관련 시트</p>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="whole-container">
+        <div className='clothes-sheet'>
+          <p>오늘의 추천 옷차림 시트</p>
+        </div>
+        <div className='picture-sheet'>
+          <p>그림 시트</p>
+        </div>
       </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="whole-container">
+        <div className='todo-sheet'>
+          <p>오늘의 추천 할 일 시트</p>
+        </div>
       </div>
-    </main>
+
+  </div>
+
   )
 }
