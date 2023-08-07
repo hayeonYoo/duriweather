@@ -70,6 +70,7 @@ module.exports = app;
 
 export default function Home() {
   return (
+<<<<<<< HEAD
     <div>
       <div className="whole-container">
         <div className='dust-sheet'>
@@ -97,5 +98,13 @@ export default function Home() {
 
   </div>
 
+=======
+    <main className={styles.main}>
+      <div>
+        DuriWeather 홈페이지입니다.
+      </div>
+
+    </main>
+>>>>>>> develop
   )
 }
