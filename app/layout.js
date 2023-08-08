@@ -6,7 +6,6 @@ import { Inter } from 'next/font/google'
 import Link from "next/link"
 import Image from "next/image"
 import logo from "/public/images/망곰로고.png"
-import ootd from "/public/images/ootd망곰.png"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,15 +25,6 @@ export default function RootLayout({ children }) {
           </Link>
         </div>
         {children}
-
-        <Link href="/">
-          <div class="floating-button">
-            <div class="img-box">
-              <div className="img"><p>OOTD 입력하러 가기</p></div>
-              <div className="img"><Image src={ootd} alt="망곰" width={50} height={50} /></div>
-            </div>
-          </div>
-        </Link>
 
         <footer className='footer'><p>2023년 산학협력프로젝트</p>
           <p>정유한 유하연 조수현</p></footer>
