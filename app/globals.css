@@ -120,3 +120,8 @@ body {
   width: 100%;
   position: static;
 }
+
+.ootd-text {
+  color: white;
+  font-weight: bold;
+}
