@@ -1,6 +1,6 @@
-const express = require("express");
-const apiRouter = express.Router();
+// const express = require("express");
+// const apiRouter = express.Router();
 
-apiRouter.use("/pm", require("./resources/pm"));
+// apiRouter.use("/pm", require("./resources/pm"));
 
-module.exports = apiRouter;
+// module.exports = apiRouter;
