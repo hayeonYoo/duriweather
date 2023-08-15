@@ -5,7 +5,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from "next/link"
 import Image from "next/image"
-import logo from "/public/images/망곰로고.png"
+import logo from "/public/logo/망곰로고.png"
 
 const inter = Inter({ subsets: ['latin'] })
 

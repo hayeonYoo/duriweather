@@ -33,7 +33,7 @@ body {
   right: 40px;
   bottom: 40px;
   border-radius: 50px;
-  background-color: skyblue;
+  background-color: lightskyblue;
 
   font-size: larger;
   font-weight: bold;
@@ -64,6 +64,7 @@ body {
   text-align: center;
   width: 100%;
   height: 100%;
+  /* margin: 10vh; */
 }
 
 .dust-sheet {
@@ -114,7 +115,7 @@ body {
 
 .footer {
   text-align: center;
-  background-color: blanchedalmond;
+  background-color: lightskyblue;
   padding: 5vh;
   margin-top: 20vh;
   width: 100%;
@@ -124,4 +125,42 @@ body {
 .ootd-text {
   color: white;
   font-weight: bold;
+}
+
+.ootd-sheet {
+  background-color: lightgray;
+  margin: 10vh;
+  border-radius: 10px;
+  padding: 5vh 0vh;
+}
+
+.ootd-sheet-title {
+  text-align: center;
+}
+
+.ootd-sheet-checkbox {
+  /* background-color: white; */
+  margin: 7vh 8vw;
+  font-size: large;
+  color: black;
+}
+
+.ootd-sheet-submit {
+  text-align: center;
+}
+
+.ootd-submit-button {
+  font-size: x-large;
+  background-color: lightskyblue	;
+  font-weight: bold;
+  color: whitesmoke;
+  border: none;
+  border-radius: 30px;
+  width: 10vw;
+  height: 8vh;
+}
+
+.checkbox-margin {
+  margin-right: 0.5vw;
+  margin-left: 1.5vw;
 }
