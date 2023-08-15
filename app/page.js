@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from "next/link"
-import ootd from "/public/images/ootd망곰.png"
+import ootd from "/public/logo/ootd망곰.png"
 
 // import axios from "axios"
 // import "./app/api/router.js";
