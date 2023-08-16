@@ -1,6 +1,28 @@
 // 메인 페이지 
 import {
-  getNcstT1H, getPop, getPty, getReh, getSky, getTmn, getTmx, getVec, getWsd, getNo2Value, getO3Value, getpm10Grade, getpm10Value, getpm25Value, getClosetJacket, getClosetPants, getClosetSopum, getClosetTop,
+  // getNcstT1H, getPop, getPty, getReh, getSky, getTmn, getTmx, getVec, getWsd, getNo2Value, getO3Value, getpm10Grade, getpm10Value, getpm25Value, getClosetJacket, getClosetPants, getClosetSopum, getClosetTop,
+  getNcst,
+  getNcstT1H,
+  getFcst,
+  getFcstPop,
+  getFcstPty,
+  getFcstReh,
+  getFcstSky,
+  getFcstTmn,
+  getFcstTmx,
+  getFcstVec,
+  getFcstWsd,
+  // getCloset,
+  getClosetJacket,
+  getClosetPants,
+  getClosetSopum,
+  getClosetTop,
+  getPm10Grade,
+  getPm10No2value,
+  getPm10O3value,
+  getPm10Pm25value,
+  getPm10Value,
+  getPm10,
 } from '@/actions'
 
 
@@ -27,9 +49,63 @@ import BaseballCap from "/public/clothes/baseball-cap.png"
 
 
 export default async function Home() {
-  const [ncstT1H, Pop, Pty, Reh, Sky, Tmn, Tmx, Vec, Wsd, No2Value, O3Value, pm10Grade, pm10Value, pm25Value, Jacket, Pants, Top, Sopum] = await Promise.all([
-    getNcstT1H(), getPop(), getPty(), getReh(), getSky(), getTmn(), getTmx(), getVec(), getWsd(), getNo2Value(), 
-    getO3Value(), getpm10Grade(), getpm10Value(), getpm25Value(), getClosetJacket(), getClosetPants(), getClosetTop(), getClosetSopum(),
+  const [
+    // ncstT1H, 
+    // Pop, 
+    // Pty, 
+    // Reh, 
+    // Sky, 
+    // Tmn, 
+    // Tmx, 
+    // Vec, 
+    // Wsd, 
+    // No2Value, 
+    // O3Value, 
+    // pm10Grade, 
+    // pm10Value, 
+    // pm25Value, 
+    // Jacket, 
+    // Pants, 
+    // Top, 
+    // Sopum
+    ncstT1H,
+    fcstPop,
+    fcstPty,
+    fcstReh, 
+    fcstSky, 
+    fcstTmn,
+    fcstTmx, 
+    fcstVec, 
+    fcstWsd, 
+    pm10Grade, 
+    pm10No2value, 
+    pm10O3value, 
+    pm10Pm25value, 
+    pm10Value, 
+    // closetJacket,  
+    // closetPants, 
+    // closetSopum,
+    // closetTop, 
+
+  ] = await Promise.all([
+    getNcstT1H(),
+    getFcstPop(),
+    getFcstPty(),
+    getFcstReh(), 
+    getFcstSky(), 
+    getFcstTmn(),
+    getFcstTmx(), 
+    getFcstVec(), 
+    getFcstWsd(), 
+    getPm10Grade(), 
+    getPm10No2value(), 
+    getPm10O3value(), 
+    getPm10Pm25value(), 
+    getPm10Value(), 
+    // getClosetJacket(), 
+    // getClosetPants(), 
+    // getClosetSopum(),
+    // getClosetTop(), 
   ]);
 
   return (
@@ -39,15 +115,15 @@ export default async function Home() {
           {/* 미세먼지 시트 */}
           <div className='dust-sheet'>
             <div><Dust /></div>
-            <div>미세먼지 {pm10Value}㎍/m³ / 초미세먼지 {pm25Value}㎍/m³ / 이산화질소 {No2Value}ppm / 오존 {O3Value}ppm </div>
+            <div>미세먼지 {pm10Value}㎍/m³ / 초미세먼지 {pm10Pm25value}㎍/m³ / 이산화질소 {pm10No2value}ppm / 오존 {pm10O3value}ppm </div>
           </div>
 
           {/* 날씨 시트 */}
           <div className='weather-sheet'>
             <div><Weather /></div>
             <div><h1>{ncstT1H}°C</h1></div>
-            <p>오늘 하루 기온은 최고 {Tmx}°C까지 올라가고 최저 {Tmn}°C까지 떨어질 예정이에요.</p>
-            <p>현재습도 {Reh}% / 강수확률 {Pop}% / 풍속 {Wsd}m/s / 풍향 {Vec}degree</p>
+            <p>오늘 하루 기온은 최고 {fcstTmx}°C까지 올라가고 최저 {fcstTmn}°C까지 떨어질 예정이에요.</p>
+            <p>현재습도 {fcstReh}% / 강수확률 {fcstPop}% / 풍속 {fcstWsd}m/s / 풍향 {fcstVec}degree</p>
         </div>
         </div>
 
@@ -61,12 +137,12 @@ export default async function Home() {
           <div className='picture-sheet'>
             <h1><p>Top</p></h1>
             <div><Image src={ShortSleeve} alt="" width={200} height={200} /></div>
-            <div><h3>{Top.name}</h3></div>
+            {/* <div><h3>{Top.name}</h3></div> */}
           </div>
           <div className='picture-sheet'>
             <h1><p>Bottom</p></h1>
             <div><Image src={Jeans} alt="" width={200} height={200} /></div>
-            <div><h3>{Pants.name}</h3></div>
+            {/* <div><h3>{Pants.name}</h3></div> */}
           </div>
           <div className='picture-sheet'>
             <h1><p>Accessary</p></h1>
@@ -111,9 +187,9 @@ export default async function Home() {
   }
 
   function Weather() {
-    switch (Pty) { // 강수 확률 우선
+    switch (fcstPty) { // 강수 확률 우선
       case 0: // 강수 확률 없음 
-        switch (Sky) { // 하늘 차선
+        switch (fcstSky) { // 하늘 차선
           case 1: // 맑음 
             return <div className='weather-info'><Image src={Sunny} alt='맑음' width={200} height={200} /><h3><p>맑음</p></h3></div>;
             break;

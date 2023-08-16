@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(req) {
-  const url = `${process.env.DURIWEATHER_API_URL}`
+  const url = `${process.env.DURIWEATHER_API_URL}/pm10`
 
   const res = await fetch(url, {
     method: 'GET',
