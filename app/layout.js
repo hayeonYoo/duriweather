@@ -6,6 +6,7 @@ import { Inter } from 'next/font/google'
 import Link from "next/link"
 import Image from "next/image"
 import logo from "/public/logo/망곰로고.png"
+import KNUlogo from "/public/logo/강원대학교2.png"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,13 +23,17 @@ export default function RootLayout({ children }) {
         <div className="navbar">
           <Link href="/">
             <div className='main-logo'><Image src={logo} alt="망곰 로고" width={100} height={100} /></div>
-            <div className='main-title'>망곰날씨알리미</div>
+            <div className='main-title'>두리날씨알리미</div>
           </Link>
         </div>
         {children}
 
-        <footer className='footer'><p>2023년 산학협력프로젝트</p>
-          <p>정유한 유하연 조수현</p></footer>
+        <footer>
+          <div className='footer'>
+          <Image src={KNUlogo} alt="강원대학교" width={200} height={83} />
+            <p>ⓒ Designed by 강원대학교 정유한 유하연 조수현</p>
+          </div>
+        </footer>
       </body>
     </html>
   )

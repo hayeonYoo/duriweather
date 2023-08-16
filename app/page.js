@@ -18,6 +18,12 @@ import Cloudy from "/public/weather/cloudy.png"
 import SunCloudy from "/public/weather/sunclody-day.png"
 import Sunny from "/public/weather/sunny-day.png"
 
+import HoodieZipup from "/public/clothes/hoodie-zipup.png"
+import ShortSleeve from "/public/clothes/short-sleeve.png"
+import Jeans from "/public/clothes/jeans.png"
+import BaseballCap from "/public/clothes/baseball-cap.png"
+
+
 
 
 export default async function Home() {
@@ -33,14 +39,14 @@ export default async function Home() {
           {/* 미세먼지 시트 */}
           <div className='dust-sheet'>
             <div><Dust /></div>
-            <div>미세먼지 {pm10Value} / 초미세먼지 {pm25Value} / 오존 {O3Value} / 이산화질소 {No2Value} </div>
+            <div>미세먼지 {pm10Value}㎍/m³ / 초미세먼지 {pm25Value}㎍/m³ / 이산화질소 {No2Value}ppm / 오존 {O3Value}ppm </div>
           </div>
 
           {/* 날씨 시트 */}
           <div className='weather-sheet'>
             <div><Weather /></div>
-            <div><h1>{ncstT1H}°</h1></div>
-            <p>오늘 하루 기온은 최고 {Tmx}°까지 올라가고 최저 {Tmn}°까지 떨어질 예정이에요.</p>
+            <div><h1>{ncstT1H}°C</h1></div>
+            <p>오늘 하루 기온은 최고 {Tmx}°C까지 올라가고 최저 {Tmn}°C까지 떨어질 예정이에요.</p>
             <p>현재습도 {Reh}% / 강수확률 {Pop}% / 풍속 {Wsd}m/s / 풍향 {Vec}degree</p>
         </div>
         </div>
@@ -49,22 +55,22 @@ export default async function Home() {
           <div className='picture-sheet-title'><h1>* 오늘의 추천 OOTD *</h1></div>
           <div className='picture-sheet'>
             <h1><p>Outer</p></h1>
-            <div><Image src="/clothes/jacket.png" alt="" width={200} height={200} /></div>
-            <div><h3>Jacket</h3></div>
+            <div><Image src={HoodieZipup} alt="" width={200} height={200} /></div>
+            <div><h3>Hoodie Zipup</h3></div>
           </div>
           <div className='picture-sheet'>
             <h1><p>Top</p></h1>
-            <div><Image src="/clothes/short-sleeve.png" alt="" width={200} height={200} /></div>
-            <div><h3>Short Sleeve</h3></div>
+            <div><Image src={ShortSleeve} alt="" width={200} height={200} /></div>
+            <div><h3>{Top.name}</h3></div>
           </div>
           <div className='picture-sheet'>
             <h1><p>Bottom</p></h1>
-            <div><Image src="/clothes/jeans.png" alt="" width={200} height={200} /></div>
-            <div><h3>Jeans</h3></div>
+            <div><Image src={Jeans} alt="" width={200} height={200} /></div>
+            <div><h3>{Pants.name}</h3></div>
           </div>
           <div className='picture-sheet'>
             <h1><p>Accessary</p></h1>
-            <div><Image src="/clothes/baseball-cap.png" alt="" width={200} height={200} /></div>
+            <div><Image src={BaseballCap} alt="" width={200} height={200} /></div>
             <div><h3>Baseball Cap</h3></div>
           </div>
         </div>
@@ -94,7 +100,7 @@ export default async function Home() {
     console.log(pm10Grade);
     switch (pm10Grade) {
       case 1:
-        return <div className='dust-info'><Image src={Good} alt="좋음" width={200} height={200} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 건강하세요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Good} alt="좋음" width={200} height={200} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 신선한 공기 듬뿍 마시고 건강하세요~</p></h3></div>;
       case 2:
         return <div className='dust-info'><Image src={Normal} alt="보통" width={200} height={200} /><h2><p>미세먼지 보통</p></h2><h3><p>공기상태는 무난해요~</p></h3></div>;
       case 3:
@@ -105,33 +111,33 @@ export default async function Home() {
   }
 
   function Weather() {
-    switch (Pty) {
-      case 0:
-        switch (Sky) {
-          case 1:
+    switch (Pty) { // 강수 확률 우선
+      case 0: // 강수 확률 없음 
+        switch (Sky) { // 하늘 차선
+          case 1: // 맑음 
             return <div className='weather-info'><Image src={Sunny} alt='맑음' width={200} height={200} /><h3><p>맑음</p></h3></div>;
             break;
-          case 2, 3:
+          case 2, 3: // 구름 조금 
             return <div className='weather-info'><Image src={SunCloudy} alt='구름조금' width={200} height={200} /><h3><p>대체로 맑음</p></h3></div>;
             break;
-          case 4:
+          case 4: // 구름 많음 
             return <div className='weather-info'><Image src={Cloudy} alt='흐림' width={200} height={200} /><h3><p>구름 많음</p></h3></div>;
             break;
-          default:
+          default: // 예외처리
             return <div>에러발생</div>;
             break;
         }
         break;
-      case 1:
+      case 1: // 비
         return <div className='weather-info'><Image src={Rainy} alt='비' width={200} height={200} /><h3><p>비</p></h3></div>;
         break;
-      case 2:
+      case 2: // 진눈깨비
         return <div className='weather-info'><Image src={SnowRainy} alt='눈/비' width={200} height={200} /><h3><p>진눈깨비</p></h3></div>;
         break;
-      case 3:
+      case 3: // 눈
         return <div className='weather-info'><Image src={Snowy} alt='눈' width={200} height={200} /><h3><p>눈</p></h3></div>;
         break;
-      default:
+      default: // 예외처리 
         return <div>에러발생</div>;
         break;
     }
