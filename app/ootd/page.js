@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 
+import {
+  postOotd
+} from '@/actions'
 const OuterList = ['패딩', '무스탕', '코트', '플리스/뽀글이', '점퍼', '자켓', '후드집업', '가디건'];
 const TopList = ['니트/스웨터', '후드티셔츠', '맨투맨/스웨트셔츠', '셔츠/블라우스', '긴팔 티셔츠', '반소매 티셔츠', '민소매 티셔츠'];
 const BottomList = ['데님 팬츠', '코튼 팬츠', '슈트팬츠/슬랙스', '트레이닝/조거 팬츠', '레깅스', '숏 팬츠', '스커트', '원피스'];
@@ -28,8 +31,9 @@ export default function Ootd() {
     setCheckedList(updatedCheckedList);
   };
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     console.log('선택항목:', checkedList);
+    await postOotd(checkedList);
     alert('제출에 성공했습니다.');
 
     
