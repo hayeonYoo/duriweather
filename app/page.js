@@ -1,6 +1,6 @@
 // 메인 페이지 
 import {
-  getNcstT1H, getPop, getPty, getReh, getSky, getTmn, getTmx, getVec, getWsd, getNo2Value, getO3Value, getpm10Grade, getpm10Value, getpm25Value,
+  getNcstT1H, getPop, getPty, getReh, getSky, getTmn, getTmx, getVec, getWsd, getNo2Value, getO3Value, getpm10Grade, getpm10Value, getpm25Value, getClosetJacket, getClosetPants, getClosetSopum, getClosetTop,
 } from '@/actions'
 
 
@@ -21,11 +21,9 @@ import Sunny from "/public/weather/sunny-day.png"
 
 
 export default async function Home() {
-  const [ncstT1H, Pop, Pty, Reh, Sky, Tmn, Tmx, Vec, Wsd, No2Value, O3Value, pm10Grade, pm10Value, pm25Value] = await Promise.all([
-    getNcstT1H(), getPop(), getPty(), getReh(), getSky(), getTmn(), getTmx(), getVec(), getWsd(), getNo2Value(), getO3Value(), getpm10Grade(), getpm10Value(), getpm25Value(),
-    // getClosetJacket(),
-    // getClosetPants(),
-    // getClosetTop(),
+  const [ncstT1H, Pop, Pty, Reh, Sky, Tmn, Tmx, Vec, Wsd, No2Value, O3Value, pm10Grade, pm10Value, pm25Value, Jacket, Pants, Top, Sopum] = await Promise.all([
+    getNcstT1H(), getPop(), getPty(), getReh(), getSky(), getTmn(), getTmx(), getVec(), getWsd(), getNo2Value(), 
+    getO3Value(), getpm10Grade(), getpm10Value(), getpm25Value(), getClosetJacket(), getClosetPants(), getClosetTop(), getClosetSopum(),
   ]);
 
   return (
@@ -81,7 +79,7 @@ export default async function Home() {
       <Link href="/ootd">
         <div className="floating-button">
           <div className="img-box">
-            <div className="img"><p>OOTD 입력하러 가기</p></div>
+            <div className="img"><h3><p>OOTD 입력하러 가기</p></h3></div>
             <div className="img"><Image src={ootd} alt="망곰" width={50} height={50} /></div>
           </div>
         </div>
