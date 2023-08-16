@@ -32,12 +32,19 @@ body {
   right: 40px;
   bottom: 40px;
   border-radius: 50px;
-  background-color: lightskyblue;
-
-  font-size: larger;
+  background-color: lightpink	;
   font-weight: bold;
   /* text-decoration: none; */
   color: whitesmoke;
+}
+
+.floating-button:hover {
+  font-size: larger;
+  box-shadow: 0px 0px 8px 8px rgb(255,255,255);
+
+  /* box-shadow:200px 0 0 0 rgba(0,0,0,0.5) inset; */
+  transition:all 0.9s, color 0.3;  
+
 }
 
 .img {
@@ -168,6 +175,7 @@ body {
   border-radius: 30px;
   width: 10vw;
   height: 8vh;
+  cursor: pointer;  
 }
 
 .checkbox-margin {
