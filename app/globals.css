@@ -1,7 +1,6 @@
 body {
-  margin: 0;
+  margin: auto;
   background: #303030;
-
 }
 
 .main-title {
@@ -51,7 +50,6 @@ body {
   margin: 2vh 2vw;
 }
 
-
 .cart-item {
   padding: 10px;
   display: flex;
@@ -62,44 +60,56 @@ body {
 
 .whole-container {
   text-align: center;
-  width: 100%;
-  height: 100%;
-  /* margin: 10vh; */
+  width: 100vw;
+  height: max-content;
 }
 
 .dust-sheet {
   background-color: lightgray;
-  margin: 20px;
+  margin: 0vh 1vw 0vh 2vw;
   display: inline-block;
   width: 45vw;
-  height: 30vh;
+  height: 60vh;
   border-radius: 10px;
+  padding-top: 5vh;
+}
+
+.dust-info {
+  /* margin-top: 4vh; */
 }
 
 .weather-sheet {
   background-color: lightgray;
-  margin: 20px;
+  margin: 0vh 2vw 0vh 1vw;
   display: inline-block;
   width: 45vw;
-  height: 30vh;
+  height: 60vh;
   border-radius: 10px;
+  padding-top: 5vh;
+  text-align: center;
+
 }
 
-.clothes-sheet {
-  background-color: lightgray;
-  margin: 20px;
+.whole-container-picture {
+  margin: 20vh 2vw;
+  text-align: center;
+}
+
+.picture-sheet-title {
   display: inline-block;
-  width: 15vw;
-  height: 30vh;
+  background-color: lightgray;
+  margin: 0vh 2vw 3vh 2vw;
+  width: 90vw;
+  height: max-content;
   border-radius: 10px;
 }
 
 .picture-sheet {
-  background-color: lightgray;
-  margin: 20px;
   display: inline-block;
-  width: 75vw;
-  height: 30vh;
+  background-color: lightgray;
+  margin: 0vh 1.5vw;
+  width: 20vw;
+  height: 55vh;
   border-radius: 10px;
 }
 
