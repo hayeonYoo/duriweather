@@ -17,7 +17,7 @@ export const getPty = async () => {
 export const getReh = async () => {
   const url = `${process.env.NEXT_PUBLIC_APP_URL}/api/fcst/reh`
   const res = await axios.get(url)
-  console.log('+ res.data : ', res.data)
+  console.log('+ res.data 습도: ', res.data)
   return res.data
 }
 

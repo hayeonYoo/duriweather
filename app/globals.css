@@ -41,6 +41,7 @@ body {
 .floating-button:hover {
   font-size: larger;
   box-shadow: 0px 0px 8px 8px rgb(255,255,255);
+  background-color: #64c4ed;
 
   /* box-shadow:200px 0 0 0 rgba(0,0,0,0.5) inset; */
   transition:all 0.9s, color 0.3;  
@@ -128,11 +129,13 @@ body {
 
 .footer {
   text-align: center;
-  background-color: lightskyblue;
+  background-color: #64c4ed;
   padding: 5vh;
   margin-top: 20vh;
-  width: 100%;
+  width: 100vw;
+  height: 20vh;
   position: static;
+  color: #393e46;
 }
 
 .ootd-text {
@@ -164,7 +167,7 @@ body {
 
 .ootd-submit-button {
   font-size: x-large;
-  background-color: lightskyblue	;
+  background-color: #64c4ed	;
   font-weight: bold;
   color: whitesmoke;
   border: none;
@@ -172,6 +175,10 @@ body {
   width: 10vw;
   height: 8vh;
   cursor: pointer;  
+}
+
+.ootd-submit-button:hover {
+  background-color: lightpink;
 }
 
 .checkbox-margin {
