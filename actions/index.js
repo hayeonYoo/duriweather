@@ -21,13 +21,13 @@ export {
 } from './get-closet'
 
 export {
-    postOotd,
-} from './post-ootd'
-
-export {
     getNo2Value,
     getO3Value,
     getpm10Grade,
     getpm10Value,
     getpm25Value,
 } from './get-air'
+
+export {
+    postOotd,
+} from './post-ootd'
