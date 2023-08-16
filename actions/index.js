@@ -1,19 +1,22 @@
 export {
+    getNcst,
     getNcstT1H,
 } from './get-ncst' 
 
 export {
-    getPop,
-    getPty,
-    getReh,
-    getSky,
-    getTmn,
-    getTmx,
-    getVec,
-    getWsd,
+    getFcst,
+    getFcstPop,
+    getFcstPty,
+    getFcstReh,
+    getFcstSky,
+    getFcstTmn,
+    getFcstTmx,
+    getFcstVec,
+    getFcstWsd,
 } from './get-fcst' 
 
 export {
+    // getCloset,
     getClosetJacket,
     getClosetPants,
     getClosetSopum,
@@ -21,12 +24,13 @@ export {
 } from './get-closet'
 
 export {
-    getNo2Value,
-    getO3Value,
-    getpm10Grade,
-    getpm10Value,
-    getpm25Value,
-} from './get-air'
+    getPm10Grade,
+    getPm10No2value,
+    getPm10O3value,
+    getPm10Pm25value,
+    getPm10Value,
+    getPm10,
+} from './get-pm10'
 
 export {
     postOotd,

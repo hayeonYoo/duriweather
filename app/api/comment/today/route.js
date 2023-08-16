@@ -6,7 +6,7 @@ export async function GET(req) {
   const res = await fetch(url, {
     method: 'GET',
     headers: {
-      'Content-Type': 'text/html',
+      'Content-Type': 'application/json',
     }
   })
 
