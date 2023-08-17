@@ -27,7 +27,7 @@ export async function POST(res) {
   }
   else {
     console.log("API 전송 실패");
-    console.log(outer, top, bottom, acc);
+    console.log(data.OuterList, data.TopList, data.BottomList, data.AccList);
   }
 
 
