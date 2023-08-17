@@ -135,10 +135,10 @@ export default async function Home() {
         <div className='todo-sheet-title'>
           <h1><div className='todo-sheet-maintitle'>오늘 하기 좋은 일을 추천해 드릴게요!</div></h1>
           <div className='todo-sheet-subtitle'>오늘의 날씨와 대기질을 고려해서 추천해드려요.</div>
-          </div>    
+          </div>   
           <div className='todo-sheet'>
-          <p>{commentToday[0].comment}</p>
-          <p>{commentToday[1].comment}</p>
+          <p>{commentToday.comment}</p>
+          {/* <p>{commentToday[1].comment}</p> */}
           </div>
         </div>
       </div>
