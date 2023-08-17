@@ -8,7 +8,8 @@ export {
 
 export {
     getComment,
-    getCommentToday,
+    getCommentToday1,
+    getCommentToday2,
 } from './get-comment'
 
 export {
