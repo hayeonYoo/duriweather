@@ -137,8 +137,8 @@ export default async function Home() {
           <div className='todo-sheet-subtitle'>오늘의 날씨와 대기질을 고려해서 추천해드려요.</div>
           </div>    
           <div className='todo-sheet'>
-          <p>{commentToday[0].comment1}</p>
-          <p>{commentToday[1].comment2}</p>
+          <p>{commentToday[0].comment}</p>
+          <p>{commentToday[1].comment}</p>
           </div>
         </div>
       </div>
@@ -183,7 +183,7 @@ export default async function Home() {
             return <div className='weather-info'><Image src={Cloudy} alt='흐림' width={200} height={200} /><h3><p>구름 많음</p></h3></div>;
             break;
           default: // 예외처리
-            return <div>에러발생</div>;
+            return <div>error!</div>;
             break;
         }
         break;
@@ -197,7 +197,7 @@ export default async function Home() {
         return <div className='weather-info'><Image src={Snowy} alt='눈' width={200} height={200} /><h3><p>눈</p></h3></div>;
         break;
       default: // 예외처리 
-        return <div>에러발생</div>;
+        return <div>error!</div>;
         break;
     }
   }
