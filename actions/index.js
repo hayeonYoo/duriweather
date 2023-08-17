@@ -1,7 +1,15 @@
 export {
-    getNcst,
-    getNcstT1H,
-} from './get-ncst' 
+    // getCloset,
+    getClosetJacket,
+    getClosetPants,
+    getClosetSopum,
+    getClosetTop,
+} from './get-closet'
+
+export {
+    getComment,
+    getCommentToday,
+} from './get-comment'
 
 export {
     getFcst,
@@ -16,12 +24,13 @@ export {
 } from './get-fcst' 
 
 export {
-    // getCloset,
-    getClosetJacket,
-    getClosetPants,
-    getClosetSopum,
-    getClosetTop,
-} from './get-closet'
+    getNcst,
+    getNcstT1H,
+} from './get-ncst' 
+
+export {
+    postOotd,
+} from './post-ootd'
 
 export {
     getPm10Grade,
@@ -32,6 +41,3 @@ export {
     getPm10,
 } from './get-pm10'
 
-export {
-    postOotd,
-} from './post-ootd'

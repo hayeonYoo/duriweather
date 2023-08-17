@@ -77,9 +77,12 @@ body {
   margin: 0vh 1vw 0vh 2vw;
   display: inline-block;
   width: 45vw;
-  height: 60vh;
+  min-height: 60vh;
+  height: max-content;
   border-radius: 10px;
-  padding-top: 5vh;
+  padding: 6vh 0vw 5vh 0vw;
+  text-align: center;
+
 }
 
 .weather-sheet {
@@ -87,11 +90,11 @@ body {
   margin: 0vh 2vw 0vh 1vw;
   display: inline-block;
   width: 45vw;
-  height: 60vh;
+  min-height: 60vh;
+  height: max-content;
   border-radius: 10px;
-  padding-top: 5vh;
+  padding: 6vh 0vw 5vh 0vw;
   text-align: center;
-
 }
 
 .whole-container-picture {
@@ -113,7 +116,8 @@ body {
   background-color: lightgray;
   margin: 0vh 1.5vw;
   width: 20vw;
-  height: 55vh;
+  height: max-content;
+  padding: 2vh 0vw 2vh 0vw;
   border-radius: 10px;
 }
 

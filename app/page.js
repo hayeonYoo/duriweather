@@ -1,8 +1,12 @@
 // 메인 페이지 
 import {
-  // getNcstT1H, getPop, getPty, getReh, getSky, getTmn, getTmx, getVec, getWsd, getNo2Value, getO3Value, getpm10Grade, getpm10Value, getpm25Value, getClosetJacket, getClosetPants, getClosetSopum, getClosetTop,
-  getNcst,
-  getNcstT1H,
+  getCloset,
+  getClosetJacket,
+  getClosetPants,
+  getClosetSopum,
+  getClosetTop,
+  getComment,
+  getCommentToday,
   getFcst,
   getFcstPop,
   getFcstPty,
@@ -12,11 +16,8 @@ import {
   getFcstTmx,
   getFcstVec,
   getFcstWsd,
-  // getCloset,
-  getClosetJacket,
-  getClosetPants,
-  getClosetSopum,
-  getClosetTop,
+  getNcst,
+  getNcstT1H,
   getPm10Grade,
   getPm10No2value,
   getPm10O3value,
@@ -50,7 +51,11 @@ import BaseballCap from "/public/clothes/baseball-cap.png"
 
 export default async function Home() {
   const [
-    ncstT1H,
+    closetJacket,  
+    closetPants, 
+    closetSopum,
+    closetTop, 
+    commentToday,
     fcstPop,
     fcstPty,
     fcstReh, 
@@ -59,18 +64,18 @@ export default async function Home() {
     fcstTmx, 
     fcstVec, 
     fcstWsd, 
+    ncstT1H,
     pm10Grade, 
     pm10No2value, 
     pm10O3value, 
     pm10Pm25value, 
     pm10Value, 
-    // closetJacket,  
-    // closetPants, 
-    // closetSopum,
-    // closetTop, 
-
   ] = await Promise.all([
-    getNcstT1H(),
+        getClosetJacket(), 
+    getClosetPants(), 
+    getClosetSopum(),
+    getClosetTop(), 
+    getCommentToday(),
     getFcstPop(),
     getFcstPty(),
     getFcstReh(), 
@@ -79,15 +84,12 @@ export default async function Home() {
     getFcstTmx(), 
     getFcstVec(), 
     getFcstWsd(), 
+    getNcstT1H(),
     getPm10Grade(), 
     getPm10No2value(), 
     getPm10O3value(), 
     getPm10Pm25value(), 
     getPm10Value(), 
-    // getClosetJacket(), 
-    // getClosetPants(), 
-    // getClosetSopum(),
-    // getClosetTop(), 
   ]);
 
   return (
@@ -113,23 +115,23 @@ export default async function Home() {
           <div className='picture-sheet-title'><h1>* 오늘의 추천 OOTD *</h1></div>
           <div className='picture-sheet'>
             <h1><p>Outer</p></h1>
-            <div><Image src={HoodieZipup} alt="" width={200} height={200} /></div>
-            <div><h3>Hoodie Zipup</h3></div>
+            <div><Image src={closetJacket.img_url} alt="" width={200} height={200} /></div>
+            <div><h3>{closetJacket.name}</h3></div>
           </div>
           <div className='picture-sheet'>
             <h1><p>Top</p></h1>
-            <div><Image src={ShortSleeve} alt="" width={200} height={200} /></div>
-            {/* <div><h3>{Top.name}</h3></div> */}
+            <div><Image src={closetTop.img_url} alt="" width={200} height={200} /></div>
+            <div><h3>{closetTop.name}</h3></div>
           </div>
           <div className='picture-sheet'>
             <h1><p>Bottom</p></h1>
-            <div><Image src={Jeans} alt="" width={200} height={200} /></div>
-            {/* <div><h3>{Pants.name}</h3></div> */}
+            <div><Image src={closetPants.img_url} alt="" width={200} height={200} /></div>
+            <div><h3>{closetPants.name}</h3></div>
           </div>
           <div className='picture-sheet'>
             <h1><p>Accessary</p></h1>
-            <div><Image src={BaseballCap} alt="" width={200} height={200} /></div>
-            <div><h3>Baseball Cap</h3></div>
+            <div><Image src={closetSopum.img_url} alt="" width={200} height={200} /></div>
+            <div><h3>{closetSopum.name}</h3></div>
           </div>
         </div>
 
