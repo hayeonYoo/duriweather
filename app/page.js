@@ -30,7 +30,7 @@ import {
 import Image from 'next/image'
 import Link from "next/link"
 import ootd from "/public/logo/ootd망곰.png"
-import Good from "/public/dust/좋음.png"
+import Good from "/public/dust/좋음두리.png"
 import Normal from "/public/dust/보통.png"
 import Bad from "/public/dust/나쁨.png"
 import Worst from "/public/dust/매우나쁨.png"
@@ -41,61 +41,54 @@ import Cloudy from "/public/weather/cloudy.png"
 import SunCloudy from "/public/weather/sunclody-day.png"
 import Sunny from "/public/weather/sunny-day.png"
 
-import HoodieZipup from "/public/clothes/hoodie-zipup.png"
-import ShortSleeve from "/public/clothes/short-sleeve.png"
-import Jeans from "/public/clothes/jeans.png"
-import BaseballCap from "/public/clothes/baseball-cap.png"
-
-
-
 
 export default async function Home() {
   const [
-    closetJacket,  
-    closetPants, 
+    closetJacket,
+    closetPants,
     closetSopum,
-    closetTop, 
+    closetTop,
     commentToday,
     fcstPop,
     fcstPty,
-    fcstReh, 
-    fcstSky, 
+    fcstReh,
+    fcstSky,
     fcstTmn,
-    fcstTmx, 
-    fcstVec, 
-    fcstWsd, 
+    fcstTmx,
+    fcstVec,
+    fcstWsd,
     ncstT1H,
-    pm10Grade, 
-    pm10No2value, 
-    pm10O3value, 
-    pm10Pm25value, 
-    pm10Value, 
+    pm10Grade,
+    pm10No2value,
+    pm10O3value,
+    pm10Pm25value,
+    pm10Value,
   ] = await Promise.all([
-        getClosetJacket(), 
-    getClosetPants(), 
+    getClosetJacket(),
+    getClosetPants(),
     getClosetSopum(),
-    getClosetTop(), 
+    getClosetTop(),
     getCommentToday(),
     getFcstPop(),
     getFcstPty(),
-    getFcstReh(), 
-    getFcstSky(), 
+    getFcstReh(),
+    getFcstSky(),
     getFcstTmn(),
-    getFcstTmx(), 
-    getFcstVec(), 
-    getFcstWsd(), 
+    getFcstTmx(),
+    getFcstVec(),
+    getFcstWsd(),
     getNcstT1H(),
-    getPm10Grade(), 
-    getPm10No2value(), 
-    getPm10O3value(), 
-    getPm10Pm25value(), 
-    getPm10Value(), 
+    getPm10Grade(),
+    getPm10No2value(),
+    getPm10O3value(),
+    getPm10Pm25value(),
+    getPm10Value(),
   ]);
 
   return (
     <div>
       <div>
-        <div className="whole-container">
+        <div className="whole-container-dustweather">
           {/* 미세먼지 시트 */}
           <div className='dust-sheet'>
             <div><Dust /></div>
@@ -108,11 +101,14 @@ export default async function Home() {
             <div><h1>{ncstT1H}°C</h1></div>
             <p>오늘 하루 기온은 최고 {fcstTmx}°C까지 올라가고 최저 {fcstTmn}°C까지 떨어질 예정이에요.</p>
             <p>현재습도 {fcstReh}% / 강수확률 {fcstPop}% / 풍속 {fcstWsd}m/s / 풍향 {fcstVec}degree</p>
-        </div>
+          </div>
         </div>
 
         <div className="whole-container-picture">
-          <div className='picture-sheet-title'><h1>* 오늘의 추천 OOTD *</h1></div>
+          <div className='picture-sheet-title'>
+          <h1><div className='picture-sheet-maintitle'>오늘 입기 좋은 OOTD를 추천해 드릴게요!</div></h1>
+          <div className='picture-sheet-subtitle'>오늘 하루 기온이랑 비슷한 날에 사용자들이 가장 많이 입은 룩을 보여드려요.</div>
+          </div>
           <div className='picture-sheet'>
             <h1><p>Outer</p></h1>
             <div><Image src={closetJacket.img_url} alt="" width={200} height={200} /></div>
@@ -135,9 +131,14 @@ export default async function Home() {
           </div>
         </div>
 
-        <div className="whole-container">
+        <div className="whole-container-todo">
+        <div className='todo-sheet-title'>
+          <h1><div className='todo-sheet-maintitle'>오늘 하기 좋은 일을 추천해 드릴게요!</div></h1>
+          <div className='todo-sheet-subtitle'>오늘의 날씨와 대기질을 고려해서 추천해드려요.</div>
+          </div>    
           <div className='todo-sheet'>
-            <p>오늘의 추천 할 일 시트</p>
+          <p>{commentToday[0].comment1}</p>
+          <p>{commentToday[1].comment2}</p>
           </div>
         </div>
       </div>
@@ -158,13 +159,13 @@ export default async function Home() {
     console.log(pm10Grade);
     switch (pm10Grade) {
       case 1:
-        return <div className='dust-info'><Image src={Good} alt="좋음" width={200} height={200} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 신선한 공기 듬뿍 마시고 건강하세요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Good} alt="좋음" width={300} height={300} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 신선한 공기 듬뿍 마시고 건강하세요~</p></h3></div>;
       case 2:
-        return <div className='dust-info'><Image src={Normal} alt="보통" width={200} height={200} /><h2><p>미세먼지 보통</p></h2><h3><p>공기상태는 무난해요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Normal} alt="보통" width={300} height={300} /><h2><p>미세먼지 보통</p></h2><h3><p>공기상태는 무난해요~</p></h3></div>;
       case 3:
-        return <div className='dust-info'><Image src={Bad} alt="나쁨" width={200} height={200} /><h2><p>미세먼지 나쁨</p></h2><h3><p>공기가 탁하네요! 마스크 챙기세요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Bad} alt="나쁨" width={300} height={300} /><h2><p>미세먼지 나쁨</p></h2><h3><p>공기가 탁하네요! 마스크 챙기세요~</p></h3></div>;
       case 4:
-        return <div className='dust-info'><Image src={Worst} alt="매우나쁨" width={200} height={200} /><h2><p>미세먼지 매우나쁨</p></h2><h3><p>공기상태 최악! 최대한 외출을 삼가세요!</p></h3></div>;
+        return <div className='dust-info'><Image src={Worst} alt="매우나쁨" width={300} height={300} /><h2><p>미세먼지 매우나쁨</p></h2><h3><p>공기상태 최악! 최대한 외출을 삼가세요!</p></h3></div>;
     }
   }
 
