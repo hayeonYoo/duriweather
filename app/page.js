@@ -30,17 +30,17 @@ import {
 
 import Image from 'next/image'
 import Link from "next/link"
-import ootd from "/public/logo/ootd망곰.png"
+import ootd from "/public/logo/ootd두리.png"
 import Good from "/public/dust/하트두리.png"
 import Normal from "/public/dust/보통두리.png"
 import Bad from "/public/dust/언짢두리.png"
-import Worst from "/public/dust/매우나쁨.png"
+import Worst from "/public/dust/울먹두리.png"
 import Rainy from "/public/weather/rainy.png"
 import SnowRainy from "/public/weather/snowrainy.png"
 import Snowy from "/public/weather/snowy.png"
 import Cloudy from "/public/weather/cloudy.png"
-import SunCloudy from "/public/weather/sunclody-day.png"
-import Sunny from "/public/weather/sunny-day.png"
+import SunCloudy from "/public/weather/sunclody.png"
+import Sunny from "/public/weather/sunny.png"
 
 
 export default async function Home() {
@@ -161,13 +161,13 @@ export default async function Home() {
   function Dust() {
     console.log(pm10Grade);
     switch (pm10Grade) {
-      case 1:
+      case 1: // 미세먼지 좋음
         return <div className='dust-info'><Image src={Good} alt="좋음" width={200} height={200} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 신선한 공기 듬뿍 마시고 건강하세요~</p></h3></div>;
-      case 2:
+      case 2: // 미세먼지 보통
         return <div className='dust-info'><Image src={Normal} alt="보통" width={200} height={200} /><h2><p>미세먼지 보통</p></h2><h3><p>공기상태는 무난해요~</p></h3></div>;
-      case 3:
-        return <div className='dust-info'><Image src={Bad} alt="나쁨" width={200} height={200} /><h2><p>미세먼지 나쁨</p></h2><h3><p>공기가 탁하네요! 마스크 챙기세요~</p></h3></div>;
-      case 4:
+      case 3: // 미세먼지 나쁨
+        return <div className='dust-info'><Image src={Bad} alt="나쁨" width={200} height={200} /><h2><p>미세먼지 나쁨</p></h2><h3><p>공기가 탁하네요! 외출할땐 꼭 마스크 챙기세요~</p></h3></div>;
+      case 4: // 미세먼지 매우나쁨 
         return <div className='dust-info'><Image src={Worst} alt="매우나쁨" width={200} height={200} /><h2><p>미세먼지 매우나쁨</p></h2><h3><p>공기상태 최악! 최대한 외출을 삼가세요!</p></h3></div>;
     }
   }
