@@ -66,7 +66,7 @@ body {
   line-height: 0px;
 }
 
-.whole-container {
+.whole-container-dustweather {
   text-align: center;
   width: 100vw;
   height: max-content;
@@ -102,13 +102,23 @@ body {
   text-align: center;
 }
 
-.picture-sheet-title {
+.picture-sheet-title, .todo-sheet-title {
   display: inline-block;
-  background-color: lightgray;
-  margin: 0vh 2vw 3vh 2vw;
+  text-align: left;
   width: 90vw;
   height: max-content;
-  border-radius: 10px;
+  margin-bottom: 4vh;
+  /* margin: 0vh 2vw 3vh 3vw; */
+}
+
+.picture-sheet-maintitle, .todo-sheet-maintitle {
+  /* display: inline-block; */
+  color: whitesmoke;
+}
+
+.picture-sheet-subtitle, .todo-sheet-subtitle {
+  /* display: inline-block; */
+  color: gray;
 }
 
 .picture-sheet {
@@ -121,14 +131,21 @@ body {
   border-radius: 10px;
 }
 
+.whole-container-todo {
+  margin: 20vh 2vw;
+  text-align: center;
+  width: 100vw;
+  height: max-content;
+}
+
 .todo-sheet {
   background-color: lightgray;
-  margin: 20px;
   display: inline-block;
+  margin: 0vh 2vw 3vh 0vw;
   width: 90vw;
-  height: 30vh;
+  height: max-content;
+  padding: 1vh 0vw 5vh 0vw;
   border-radius: 10px;
-
 }
 
 .footer {

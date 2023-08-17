@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
         <footer>
           <div className='footer'>
           <Image src={KNUlogo} alt="강원대학교" width={200} height={83} />
-            <p>ⓒ Designed by 강원대학교 정유한 유하연 조수현</p>
+            <p>ⓒ Created by 강원대학교 정유한 유하연 조수현</p>
           </div>
         </footer>
       </body>
