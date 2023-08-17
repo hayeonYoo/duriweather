@@ -132,7 +132,7 @@ body {
 }
 
 .whole-container-todo {
-  margin: 20vh 2vw;
+  margin: 20vh 0vw;
   text-align: center;
   width: 100vw;
   height: max-content;
@@ -141,10 +141,10 @@ body {
 .todo-sheet {
   background-color: lightgray;
   display: inline-block;
-  margin: 0vh 2vw 3vh 0vw;
+  margin: 0vh 2vw 3vh 2vw;
   width: 90vw;
   height: max-content;
-  padding: 1vh 0vw 5vh 0vw;
+  padding: 5vh 0vw 5vh 0vw;
   border-radius: 10px;
 }
 

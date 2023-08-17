@@ -6,7 +6,8 @@ import {
   getClosetSopum,
   getClosetTop,
   getComment,
-  getCommentToday,
+  getCommentToday1,
+  getCommentToday2,
   getFcst,
   getFcstPop,
   getFcstPty,
@@ -30,9 +31,9 @@ import {
 import Image from 'next/image'
 import Link from "next/link"
 import ootd from "/public/logo/ootd망곰.png"
-import Good from "/public/dust/좋음두리.png"
-import Normal from "/public/dust/보통.png"
-import Bad from "/public/dust/나쁨.png"
+import Good from "/public/dust/하트두리.png"
+import Normal from "/public/dust/보통두리.png"
+import Bad from "/public/dust/언짢두리.png"
 import Worst from "/public/dust/매우나쁨.png"
 import Rainy from "/public/weather/rainy.png"
 import SnowRainy from "/public/weather/snowrainy.png"
@@ -48,7 +49,8 @@ export default async function Home() {
     closetPants,
     closetSopum,
     closetTop,
-    commentToday,
+    commentToday1,
+    commentToday2,
     fcstPop,
     fcstPty,
     fcstReh,
@@ -68,7 +70,8 @@ export default async function Home() {
     getClosetPants(),
     getClosetSopum(),
     getClosetTop(),
-    getCommentToday(),
+    getCommentToday1(),
+    getCommentToday2(),
     getFcstPop(),
     getFcstPty(),
     getFcstReh(),
@@ -137,8 +140,8 @@ export default async function Home() {
           <div className='todo-sheet-subtitle'>오늘의 날씨와 대기질을 고려해서 추천해드려요.</div>
           </div>   
           <div className='todo-sheet'>
-          <p>{commentToday.comment}</p>
-          {/* <p>{commentToday[1].comment}</p> */}
+          <h3><p>{commentToday1.comment}</p></h3>
+          <h3><p>{commentToday2.comment}</p></h3>
           </div>
         </div>
       </div>
@@ -159,13 +162,13 @@ export default async function Home() {
     console.log(pm10Grade);
     switch (pm10Grade) {
       case 1:
-        return <div className='dust-info'><Image src={Good} alt="좋음" width={300} height={300} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 신선한 공기 듬뿍 마시고 건강하세요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Good} alt="좋음" width={200} height={200} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 신선한 공기 듬뿍 마시고 건강하세요~</p></h3></div>;
       case 2:
-        return <div className='dust-info'><Image src={Normal} alt="보통" width={300} height={300} /><h2><p>미세먼지 보통</p></h2><h3><p>공기상태는 무난해요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Normal} alt="보통" width={200} height={200} /><h2><p>미세먼지 보통</p></h2><h3><p>공기상태는 무난해요~</p></h3></div>;
       case 3:
-        return <div className='dust-info'><Image src={Bad} alt="나쁨" width={300} height={300} /><h2><p>미세먼지 나쁨</p></h2><h3><p>공기가 탁하네요! 마스크 챙기세요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Bad} alt="나쁨" width={200} height={200} /><h2><p>미세먼지 나쁨</p></h2><h3><p>공기가 탁하네요! 마스크 챙기세요~</p></h3></div>;
       case 4:
-        return <div className='dust-info'><Image src={Worst} alt="매우나쁨" width={300} height={300} /><h2><p>미세먼지 매우나쁨</p></h2><h3><p>공기상태 최악! 최대한 외출을 삼가세요!</p></h3></div>;
+        return <div className='dust-info'><Image src={Worst} alt="매우나쁨" width={200} height={200} /><h2><p>미세먼지 매우나쁨</p></h2><h3><p>공기상태 최악! 최대한 외출을 삼가세요!</p></h3></div>;
     }
   }
 
