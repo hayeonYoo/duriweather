@@ -162,13 +162,13 @@ export default async function Home() {
     console.log(pm10Grade);
     switch (pm10Grade) {
       case 1: // 미세먼지 좋음
-        return <div className='dust-info'><Image src={Good} alt="좋음" width={200} height={200} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 신선한 공기 듬뿍 마시고 건강하세요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Good} alt="좋음" width={240} height={240} /><h2><p>미세먼지 좋음</p></h2><h3><p>공기상태 최고! 신선한 공기 듬뿍 마시고 건강하세요~</p></h3></div>;
       case 2: // 미세먼지 보통
-        return <div className='dust-info'><Image src={Normal} alt="보통" width={200} height={200} /><h2><p>미세먼지 보통</p></h2><h3><p>공기상태는 무난해요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Normal} alt="보통" width={240} height={240} /><h2><p>미세먼지 보통</p></h2><h3><p>공기상태는 무난해요~</p></h3></div>;
       case 3: // 미세먼지 나쁨
-        return <div className='dust-info'><Image src={Bad} alt="나쁨" width={200} height={200} /><h2><p>미세먼지 나쁨</p></h2><h3><p>공기가 탁하네요! 외출할땐 꼭 마스크 챙기세요~</p></h3></div>;
+        return <div className='dust-info'><Image src={Bad} alt="나쁨" width={240} height={240} /><h2><p>미세먼지 나쁨</p></h2><h3><p>공기가 탁하네요! 외출할땐 꼭 마스크 챙기세요~</p></h3></div>;
       case 4: // 미세먼지 매우나쁨 
-        return <div className='dust-info'><Image src={Worst} alt="매우나쁨" width={200} height={200} /><h2><p>미세먼지 매우나쁨</p></h2><h3><p>공기상태 최악! 최대한 외출을 삼가세요!</p></h3></div>;
+        return <div className='dust-info'><Image src={Worst} alt="매우나쁨" width={240} height={240} /><h2><p>미세먼지 매우나쁨</p></h2><h3><p>공기상태 최악! 최대한 외출을 삼가세요!</p></h3></div>;
     }
   }
 
